@@ -1,0 +1,41 @@
+{
+  "name": "tranquility-language-support",
+  "displayName": "Tranquility Language Support",
+  "description": "Support for Drexel CS164 Tranquility Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "tranquility",
+        "aliases": [
+          "Tranquility",
+          "tranquility"
+        ],
+        "extensions": [
+          ".t"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./tranquility-logo.svg",
+          "dark": "./tranquility-logo.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tranquility",
+        "scopeName": "source.t",
+        "path": "./syntaxes/tranquility.tmLanguage.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "tranquility-language-support": "file:"
+  }
+}

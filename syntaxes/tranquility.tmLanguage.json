@@ -1,0 +1,101 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Tranquility",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#declarations"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#fundef"
+		},
+		{
+			"include": "#funcall"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.tranquility",
+				"captures": {
+					"0": {
+						"name": "comment.line.number-sign.tranquility"
+					}
+				},
+				"begin": "#",
+				"end": "\\n"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.tranquility",
+				"match": "\\b(if|else|loop|until|return)\\b"
+			}]
+		},
+		"declarations": {
+			"patterns": [{
+				"name": "keyword.other.tranquility",
+				"match": "\\b(fun|var)\\b"
+			}]
+		},
+		"variables": {
+			"patterns": [{
+				"name": "variable.other.tranquility",
+				"match": "\\.([\\w]+)"
+			}]
+		},
+		"operators": {
+			"patterns": [{
+				"name": "keyword.operator.new.tranquility",
+				"match": "\\+|-|\\*|/|%|&|\\||\\^|=|==|!=|<|<=|>|>=|<<|>>|:"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.tranquility",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.tranquility",
+					"match": "\\\\."
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric.tranquility",
+				"match": "[+-]?([0-9]*[.])?[0-9]+"
+			}]
+		},
+		"fundef": {
+			"patterns": [{
+				"name": "support.function.tranquility",
+				"match": "(?<=(fun)\\s)\\w+(?=\\()"
+			}]
+		},
+		"funcall": {
+			"patterns": [{
+				"name": "support.function.tranquility",
+				"match": "\\w+(?=\\()"
+			}]
+		}
+	},
+	"scopeName": "source.t"
+}
