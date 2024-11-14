@@ -1,41 +1,59 @@
 {
-  "name": "tranquility-language-support",
-  "displayName": "Tranquility Language Support",
-  "description": "Support for Drexel CS164 Tranquility Language",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.95.0"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "contributes": {
-    "languages": [
-      {
-        "id": "tranquility",
-        "aliases": [
-          "Tranquility",
-          "tranquility"
-        ],
-        "extensions": [
-          ".t"
-        ],
-        "configuration": "./language-configuration.json",
-        "icon": {
-          "light": "./tranquility-logo.svg",
-          "dark": "./tranquility-logo.svg"
-        }
-      }
-    ],
-    "grammars": [
-      {
-        "language": "tranquility",
-        "scopeName": "source.t",
-        "path": "./syntaxes/tranquility.tmLanguage.json"
-      }
-    ]
-  },
-  "dependencies": {
-    "tranquility-language-support": "file:"
-  }
+	"name": "tranquility-language-support",
+	"displayName": "Tranquility Language Support",
+	"description": "Support for Drexel CS164 Tranquility Language",
+	"version": "0.0.1",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.95.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "tranquility",
+				"aliases": [
+					"Tranquility",
+					"tranquility"
+				],
+				"extensions": [
+					".t"
+				],
+				"configuration": "./language-configuration.json",
+				"icon": {
+					"light": "./tranquility-logo.svg",
+					"dark": "./tranquility-logo.svg"
+				}
+			}
+		],
+		"grammars": [
+			{
+				"language": "tranquility",
+				"scopeName": "source.t",
+				"path": "./syntaxes/tranquility.tmLanguage.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.13.0",
+		"@stylistic/eslint-plugin": "^2.9.0",
+		"@types/node": "^20",
+		"@types/vscode": "^1.73.0",
+		"eslint": "^9.13.0",
+		"typescript": "^5.6.2",
+		"typescript-eslint": "^8.11.0"
+	},
+	"dependencies": {
+		"completions-sample": "file:",
+		"tranquility-language-support": "file:"
+	}
 }
